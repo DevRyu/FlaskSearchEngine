@@ -38,7 +38,6 @@ class Company(db.Model):
     """
     __tablename__ = 'company'
     __table_args__ = {'extend_existing': True}
-
     id = db.Column(db.Integer, primary_key=True)
     company_id = db.Column(db.Integer, nullable=False, unique=True)
     represent_company_name = db.Column(db.String(50), nullable=False)
@@ -59,6 +58,7 @@ class Localization(db.Model):
     """
     __tablename__ = 'localization'
     __table_args__ = {'extend_existing': True}
+    __searchable__ = ['localization_company_name']
 
     id = db.Column(db.Integer, primary_key=True)
     language = db.Column(db.String(2), nullable=False)
@@ -89,6 +89,14 @@ class LocSerTagMapping(db.Model):
     company_locsertagmapping = db.relationship('Company', back_populates='locsertagmapping_company')
     tag_locsertagmapping = db.relationship('Tag', back_populates='locsertagmapping_tag')
     servicelocation_locsertagmapping = db.relationship('ServiceLocation', back_populates='locsertagmapping_servicelocation')
+    
+    '''
+    POST,PUT,DELETE의 경우에는 __init__ 재정의를 해야 사용이 가능했습니다.
+    '''
+    def __init__(self,for_company_id,for_tag_id,for_service_location_id):
+        self.for_company_id = for_company_id
+        self.for_tag_id = for_tag_id
+        self.for_service_location_id = for_service_location_id
 
 class Tag(db.Model):
     """  

@@ -12,7 +12,7 @@ instance/*
 __pycache__/
 *.py[cod]
 *$py.class
-
+*.pyc
 # C extensions
 *.so
 
@@ -137,5 +137,5 @@ dmypy.json
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
-
+.csv#
 # End of https://www.gitignore.io/api/linux,flask,visualstudiocode
