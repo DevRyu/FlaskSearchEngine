@@ -49,10 +49,7 @@ def search():
             Company.query.all()
             return dict(success=False, messsage='NoParamsValue'), 400, dict()
 
-        '''
-        company로 검색 할 경우
-        '''
-        elif company and not tag:
+        elif company and not tag: # company로 검색 할 경우
             company_query = Localization.query.filter(Localization.localization_company_name.contains(company)).all()
             
             get_company_case = [id.for_company_id for id in company_query]
@@ -76,12 +73,11 @@ def search():
                         "tag_jp" :  '|'.join(''.join(map(str, x.tag_locsertagmapping.tag_jp)) for x in index.company_localization.locsertagmapping_company),
                         "tag_en" :  '|'.join(''.join(map(str, x.tag_locsertagmapping.tag_en)) for x in index.company_localization.locsertagmapping_company)
                     })
-
+            if final == []:
+                return dict(Success=True, Messsage='DataNotFound',), 404, dict()
             return dict(success=True, messsage='Success', data=final), 200, dict()
-        '''
-        tag로 검색을 할 경우
-        '''
-        elif not company and tag:
+
+        elif not company and tag:  # tag로 검색을 할 경우
 
             tag_ko_filter = [Tag.tag_ko == tag for tag in tags]
             tag_jp_filter = [Tag.tag_jp == tag for tag in tags]
@@ -126,7 +122,8 @@ def search():
                     k: '|'.join(''.join(map(str, v.get(k))) for v in tag)
                     for k in set().union(*tag)
                 })
-
+            if company_data == []:
+                return dict(Success=True, Messsage='DataNotFound',), 404, dict()
             return dict(Success=True, Messsage='Success', data=company_data), 200, dict()
 
 
@@ -148,7 +145,7 @@ def tag_put():
     data = ['company_id', 'tag']
     json_data = request.get_json()
     for keys in json_data:
-        if keys not in data:
+        if keys not in data or len(json_data) != 2:
             return dict(success=False, messsage='WrongKey'), 400, dict()
     try:
         if json_data['company_id'] not in range(1,101):
@@ -192,7 +189,7 @@ def tag_delete():
     json_data = request.get_json()
 
     for keys in json_data.keys():
-        if keys not in data:
+        if keys not in data or len(json_data) != 2:
             return dict(success=False, messsage='WrongKey'), 400, dict()
 
     try:
