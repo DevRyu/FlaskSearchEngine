@@ -15,7 +15,6 @@ __pycache__/
 *.pyc
 # C extensions
 *.so
-
 # Distribution / packaging
 .Python
 build/
@@ -137,5 +136,9 @@ vscode/*
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
-.csv#
+.~lock.Tag.csv#
+.~lock.Company.csv#
+.~lock.Localization.csv#
+.~lock.LocSerTagMapping.csv#
+.~lock.ServiceLocation.csv#
 # End of https://www.gitignore.io/api/linux,flask,visualstudiocode
