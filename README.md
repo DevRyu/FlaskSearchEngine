@@ -43,11 +43,11 @@ Flask-SQLAlchemy,alembic,mysql-connector를 사용하여 구현 하였습니다.
 
 
 ## 가상환경 설정
- 
-python 3.7, conda 가상환경으로 구현하였습니다.
-
-처음에 의존하는 외부 라이브러리 설치가 필요합니다.
-가상환경에서 설치를 권장 드립니다.
+     
+python 3.7, conda 가상환경으로 구현하였습니다.    
+처음에 의존하는 외부 라이브러리 설치가 필요합니다.    
+가상환경에서 설치를 권장 드립니다.    
+      
 ```bash
 # requirements.txt가 있는 FlaskSearchengine환경에서 라이브러리 설치
 /FlaskSearchengine pip install -r requirements.txt
@@ -56,9 +56,9 @@ python 3.7, conda 가상환경으로 구현하였습니다.
 ## MYSQL DB설정
      
 데이터베이스 인코딩은 utf-8 general ci로 사용했습니다.         
-config.py에 들어가셔서 data 딕셔너리에서 환경에 맞게 수정 해 주시고 
-Mysql DB에서 create database로 data['database']와 같은 것으로 설치 해 주시면 됩니다.
-
+config.py에 들어가셔서 data 딕셔너리에서 환경에 맞게 수정 해 주시고    
+Mysql DB에서 create database로 data['database']와 같은 것으로 설치 해 주시면 됩니다.    
+    
 ```
 /FlaskSearchengine/config.py
 예)
@@ -73,20 +73,22 @@ data = {
 MYSQL
 SQL> CREATE DATABASE wanted default CHARACTER SET UTF8
 ```
-
-alembic으로 마이그레이션을 세팅하였습니다.
-
-## 마이그레이션 설정
- 
+    
+## 마이그레이션 설정    
+    
+alembic으로 마이그레이션을 세팅하였습니다.    
+    
 ```
 /FlaskSearchengine alembic revision -m "migrate" --autogenerate # models.py 에서 모델의 변동사항을 반영하는 명령어 입니다.
 /FlaskSearchengine alembic upgrade head # 제일 최신의 마이그레이션 버전을 사용합니다, 실제 DB에 반영이 됩니다. 
 
 # FAILED: Target database is not up to date.에러 시  alembic upgrade head를 먼저 실행 한 후 실행하시면 됩니다.
 ```
-터미널의 CMD 화면을 기준으로 설명을 드리겠습니다.     
      
 ## 데이터 삽입     
+     
+터미널의 CMD 화면을 기준으로 설명을 드리겠습니다.     
+    
 ```bash
 CMD
 /FlaskSearchengine cd model
