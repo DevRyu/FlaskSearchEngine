@@ -34,10 +34,7 @@ GET
 '''
 @app.route('/search', methods=['GET'])
 def search():
-    data = ['company', 'tag']
-    for keys in dict(request.args):
-        if keys not in data:
-            return dict(success=False, messsage='WrongParamsRequest'), 400, dict()
+    parameter_check(dict(request.args))
     try:
         company = request.args.get('company')
         tag = request.args.get('tag')
