@@ -88,7 +88,8 @@ alembic으로 마이그레이션을 세팅하였습니다.
 ## 데이터 삽입     
      
 터미널의 CMD 화면을 기준으로 설명을 드리겠습니다.     
-    
+아래의 model폴더에서 명령어를 실행시켜야 정상적으로 입력됩니다.    
+        
 ```bash
 CMD
 /FlaskSearchengine cd model
@@ -96,13 +97,17 @@ CMD
 ```
      
 ## 앱 실행
-
+     
+다시 기존의 /FlaskSearchengine에서 아래 명령어를 입력하면 됩니다.
+     
 ```
 /FlaskSearchengine FLASK_APP=run.py FLASK_DEBUG=0 flask run
 ```
 
 ## api 배포 
-
+    
+Postman을 활용하여 배포 하였습니다.        
+    
 https://documenter.getpostman.com/view/9188758/SWTABKGb?version=latest#intro
 
 ### apis/api에 코드설명은 apis/api_comment.py 확인 부탁드리겠습니다.
