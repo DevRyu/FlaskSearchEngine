@@ -89,3 +89,5 @@ FLASK_APP=run.py FLASK_DEBUG=0 flask run
 ## api 배포 
 
 https://documenter.getpostman.com/view/9188758/SWTABKGb?version=latest#intro
+
+### api에 코드 설명은 apis/api_comment.py
