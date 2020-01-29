@@ -79,14 +79,14 @@ alembic으로 마이그레이션을 세팅하였습니다.
 ## 마이그레이션 설정
  
 ```
-alembic revision -m "migrate" --autogenerate # models.py 에서 모델의 변동사항을 반영하는 명령어 입니다.
-alembic upgrade head # 제일 최신의 마이그레이션 버전을 사용합니다, 실제 DB에 반영이 됩니다. 
+/FlaskSearchengine alembic revision -m "migrate" --autogenerate # models.py 에서 모델의 변동사항을 반영하는 명령어 입니다.
+/FlaskSearchengine alembic upgrade head # 제일 최신의 마이그레이션 버전을 사용합니다, 실제 DB에 반영이 됩니다. 
 ```
 
 ## 앱 실행
 
 ```
-FLASK_APP=run.py FLASK_DEBUG=0 flask run
+/FlaskSearchengine FLASK_APP=run.py FLASK_DEBUG=0 flask run
 ```
 
 ## api 배포 
