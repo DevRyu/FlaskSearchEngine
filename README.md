@@ -54,9 +54,9 @@ python 3.7, conda 가상환경으로 구현하였습니다.
 ```
 
 ## MYSQL DB설정
- 
-
-config.py에 들어가셔서 data 딕셔너리에서 환경에 맞게 설정해 주시고 
+     
+데이터베이스 인코딩은 utf-8 general ci로 사용했습니다.         
+config.py에 들어가셔서 data 딕셔너리에서 환경에 맞게 수정 해 주시고 
 Mysql DB에서 create database로 data['database']와 같은 것으로 설치 해 주시면 됩니다.
 
 ```
@@ -81,8 +81,18 @@ alembic으로 마이그레이션을 세팅하였습니다.
 ```
 /FlaskSearchengine alembic revision -m "migrate" --autogenerate # models.py 에서 모델의 변동사항을 반영하는 명령어 입니다.
 /FlaskSearchengine alembic upgrade head # 제일 최신의 마이그레이션 버전을 사용합니다, 실제 DB에 반영이 됩니다. 
-```
 
+# FAILED: Target database is not up to date.에러 시  alembic upgrade head를 먼저 실행 한 후 실행하시면 됩니다.
+```
+터미널의 CMD 화면을 기준으로 설명을 드리겠습니다.     
+     
+## 데이터 삽입     
+```bash
+CMD
+/FlaskSearchengine cd model
+/FlaskSearchengine/model python setup.py
+```
+     
 ## 앱 실행
 
 ```
