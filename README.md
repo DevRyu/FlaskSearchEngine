@@ -90,4 +90,4 @@ FLASK_APP=run.py FLASK_DEBUG=0 flask run
 
 https://documenter.getpostman.com/view/9188758/SWTABKGb?version=latest#intro
 
-### apis/api에 코드설명(은 apis/api_comment.py 확인 부탁드리겠습니다.
+### apis/api에 코드설명은 apis/api_comment.py 확인 부탁드리겠습니다.
