@@ -4,9 +4,12 @@ Flask-SQLAlchemy,alembic,mysql-connector를 사용하여 구현 하였습니다.
 # 파일 구조
 ```
 ├── apis/  # api 비즈니스 로직이 들어있는 폴더입니다.
+│   └── utils/ 
+│       └── helper.py # api.py에 사용되는 헬퍼 함수들을 모아 놨습니다.    
 │   ├── __init__.py
 │   ├── __pycache__
-│   └── api.py
+│   ├── api_comment.py # 각각의 코드들에 대한 사용 이유를 주석을 달아 놓은 파일입니다. 
+│   └── api.py # api 코드입니다.
 │
 ├── migrations/ # alembic으로 migrations을 관리 하였습니다.
 │   ├── README
@@ -17,7 +20,7 @@ Flask-SQLAlchemy,alembic,mysql-connector를 사용하여 구현 하였습니다.
 │       └── __pycache__
 │
 ├── model/ # 데이터 모델의 파일입니다. 
-│   ├── Company.csv # 각각 테이블에 해당하는 csv파일입니다.
+│   ├── Company.csv # 각 테이블에 해당하는 csv파일입니다.
 │   ├── LocSerTagMapping.csv
 │   ├── Localization.csv
 │   ├── ServiceLocation.csv
