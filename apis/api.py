@@ -47,7 +47,6 @@ def search():
             return dict(success=False, messsage='MethodNotAllowed'), 405, dict()
 
         elif not company and not tag:
-            Company.query.all()
             return dict(success=False, messsage='NoParamsValue'), 400, dict()
 
         elif company and not tag: # company로 검색 할 경우
